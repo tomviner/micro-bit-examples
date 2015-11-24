@@ -1,6 +1,6 @@
 import microbit
 
-### define some constants
+# define some constants
 
 DISPLAY_WIDTH = 5
 DISPLAY_HEIGHT = 5
@@ -12,7 +12,7 @@ MAX_BRIGHTNESS = 9
 # this is how the accelerometer values 1g of gravity
 ONE_G = 1024
 
-### Some maths functions to help us
+# Some maths functions to help us
 
 def clamp(minimum, n, maximum):
     """Return the nearest value to n, that's within minimum to maximum (incl)
@@ -36,7 +36,7 @@ def rescale(src_scale, dest_scale, x):
     # apply our proportion to the dest_scale
     return proportion * (dest_end - dest_start) + dest_start
 
-### Helpers for controling the display
+# Helpers for controling the display
 
 def light(brightness, filter):
     """Light up all pixels matching the filter function
@@ -99,8 +99,8 @@ def paint_water():
     # light up the pixels when filter returns true, to the given bright level
     light(overall_brightness, filter)
 
-### loop forever painting watery pixels, sleeping and then fading as each pixel
-### washes away into the night
+# loop forever painting watery pixels, sleeping and then fading as each pixel
+# washes away into the night
 
 while True:
     paint_water()
