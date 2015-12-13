@@ -1,5 +1,8 @@
-"""
-A little example of using pins 1 & 2  an extra 2 buttons
+"""Four buttons - 2 buttons + 2 more "buttons"!
+A little example of using pins 1 & 2 an extra 2 buttons. By Tom Viner
+
+Explanation and see running:
+https://www.youtube.com/watch?v=6ofUJ6Mgk4k
 """
 import microbit
 

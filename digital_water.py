@@ -1,3 +1,10 @@
+"""
+Digital Water - your micro water simulator. By Tom Viner
+
+Explanation and see running:
+https://www.youtube.com/watch?v=OBTUjoc46Pk
+"""
+
 import microbit
 
 # define some constants
@@ -22,7 +29,7 @@ def clamp(minimum, n, maximum):
 def rescale(src_scale, dest_scale, x):
     """Map one number scale to another
 
-    For example, to convert a score of 4 starts out of 5 into a percentage:
+    For example, to convert a score of 4 stars out of 5 into a percentage:
     >>> rescale((0, 5), (0, 100), 4)
     80.0
 
@@ -81,12 +88,13 @@ def paint_water():
         """
         if Y < 0:
             # we're upside down, so reverse the y-axis value
-            # (- 1 because we start counting rows from 0)
+            # (- 1 because we start counting rows from 0, not 1)
             row = DISPLAY_HEIGHT - 1 - row
         # remember rows count down from the top, so we want to light up all
-        # the rows below the water line (when the micro:bit is help up stright)
+        # the rows below the water line (when the micro:bit is help up straight)
         # The forumula here is of the form y = m*x + c
         # We have a couple of "- 2"s to centre the water level in the middle
+        # of the display
         return row - 2 > -turn_factor * (col - 2) - spill_factor
 
     # we want the water to "dilute" when spread out across the whole display
