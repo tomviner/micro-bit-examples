@@ -21,14 +21,14 @@ def rescale(src_scale, dest_scale, x):
     return proportion * (dest_end - dest_start) + dest_start
 
 
-PERIOD = 5000  # microseconds
+# PERIOD = 5000  # microseconds
 
 def pulse_burst(pulse_width, on, off):
-    microbit.pin0.set_analog_period_microseconds(PERIOD)
-    pulse_value = rescale((0, PERIOD), (DUTY_0PC, DUTY_100PC), pulse_width)
-    print(pulse_width, pulse_value, end='...')
+    microbit.pin0.set_analog_period_microseconds(2 * pulse_width)
+    # pulse_value = rescale((0, PERIOD), (DUTY_0PC, DUTY_100PC), pulse_width)
+    print(pulse_width, 2 * pulse_width, end='...')
     try:
-        microbit.pin0.write_analog(int(pulse_value))
+        microbit.pin0.write_analog(int(511))
         microbit.sleep(on)
     finally:
         print('#', end='')
@@ -36,8 +36,8 @@ def pulse_burst(pulse_width, on, off):
         print('')
     microbit.sleep(off)
 
-on = 500
-off = 100
+on = 400
+off = 00
 mn = 1000  # 35/2024
 mx = 2000  # 102/2024
 step = 50
