@@ -4,7 +4,11 @@ A little example of using pins 1 & 2 an extra 2 buttons. By Tom Viner
 Explanation and see running:
 https://www.youtube.com/watch?v=6ofUJ6Mgk4k
 """
-import microbit
+# this enables testing!
+try:
+    import microbit
+except ImportError:
+    microbit = None
 
 # define some constants
 
@@ -111,10 +115,15 @@ def four_buttons():
         paint_box(top=3)
 
 
-while True:
-    four_buttons()
+def forever_four_buttons():
+    while True:
+        four_buttons()
 
-    microbit.sleep(10)
+        microbit.sleep(10)
 
-    # fade all pixels by one brightness level
-    fade_display()
+        # fade all pixels by one brightness level
+        fade_display()
+
+
+if __name__ == '__main__':
+    forever_four_buttons()
