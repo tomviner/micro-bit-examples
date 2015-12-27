@@ -1,3 +1,7 @@
+"""
+http://www.watkissonline.co.uk/wordpress/?p=7898
+"""
+
 import microbit
 
 DUTY_0PC = 0
@@ -42,9 +46,12 @@ mn = 1000  # 35/2024
 mx = 2000  # 102/2024
 step = 50
 
-def r():
+def range_up_then_down():
     yield from range(mn, mx, step)
     yield from range(mx, mn, -step)
 
-while 1:
-    [pulse_burst(i, on, off) for i in r()]
+def main():
+    while 1:
+        [pulse_burst(i, on, off) for i in range_up_then_down()]
+
+main()
