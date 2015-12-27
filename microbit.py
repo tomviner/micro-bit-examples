@@ -32,8 +32,13 @@ class Pixel:
 class FakeMicrobit:
     screen = {}
 
+    start_time = time.time()
+
     def sleep(self, ms):
         time.sleep(ms / 1000.)
+
+    def running_time(self):
+        return round((time.time() - self.start_time) * 1000)
 
     @property
     def button(self):

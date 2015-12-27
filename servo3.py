@@ -64,8 +64,8 @@ md = 1500
 step = 20
 use_pulse = True
 # use 600
-top = 700  # 1200
-bot = 850  # 900
+top = 850  # 1200
+bot = 700  # 900
 mn_factor = 0.85
 md_factor = 1.5
 
