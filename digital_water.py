@@ -59,8 +59,8 @@ def fade_display():
 
     This means as we draw new things, the old ones will fade away
     """
-    for col in range(5):
-        for row in range(5):
+    for col in range(DISPLAY_WIDTH):
+        for row in range(DISPLAY_HEIGHT):
             brightness = microbit.display.get_pixel(col, row)
             # reduce by one, but make sure it's still in 0 to 9
             brightness = clamp(MIN_BRIGHTNESS, brightness - 1, MAX_BRIGHTNESS)
@@ -91,7 +91,7 @@ def paint_water():
             # (- 1 because we start counting rows from 0, not 1)
             row = DISPLAY_HEIGHT - 1 - row
         # remember rows count down from the top, so we want to light up all
-        # the rows below the water line (when the micro:bit is help up straight)
+        # the rows below the water line (when the micro:bit is held up straight)
         # The forumula here is of the form y = m*x + c
         # We have a couple of "- 2"s to centre the water level in the middle
         # of the display
